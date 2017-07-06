@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Hello]]></title>
-    <url>%2F2017%2F07%2F06%2FHello%2F</url>
-    <content type="text"></content>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[用Hexo搭建博客遇到的问题]]></title>
     <url>%2F2017%2F05%2F25%2F%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[1.打野的，npm是啥？ 1.npm是什么东东？npm其实是Node.js的包管理工具（package manager）。 2.为啥我们需要一个包管理工具呢？因为我们在Node.js上开发时，会用到很多别人写的JavaScript代码。如果我们要使用别人写的某个包，每次都根据名称搜索一下官方网站，下载代码，解压，再使用，非常繁琐。于是一个集中管理的工具应运而生：大家都把自己开发的模块打包后放到npm官网上，如果要使用，直接通过npm安装就可以直接用，不用管代码存在哪，应该从哪下载。 3.更重要的是，如果我们要使用模块A，而模块A又依赖于模块B，模块B又依赖于模块X和模块Y，npm可以根据依赖关系，把所有依赖的包都下载下来并管理起来。否则，靠我们自己手动管理，肯定既麻烦又容易出错。 这话来自http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143450141843488beddae2a1044cab5acb5125baf0882000 2.上单，如何查看端口被占用？我用图说话： 3.喂，上单再帮帮我看看如何解决端口被占用？三种方法： 1.查看端口被那个进程使用，然后关掉端口对应的进程 2.修改hexo的_config.yml配置，添加以下代码 1234server: port: 4001 compress: true header: true 3.启动服务时直接用该命令即可 1hexo server -p 4001 4.中单啊，无法将项目部署到github上额？看图，别说话，别打扰我补兵 5.如何检查本地有key+若有如何删除key+如何重新配置新key? 1.查看本地电脑是否保存有SSH key 1cat ~/.ssh/id_rsa.pub 2.若有直接删除(整个文件夹) 1该目录一般在C:\Users\Administrator\.ssh 3.创建新的ssh key==》git bash 输入 1ssh-keygen -t rsa -C &quot;你github账户验证的邮箱号&quot; 4.密码不需要输入直接跳过即可，三个回车 5.查看你设置的ssh key 1cat ~/.ssh/id_rsa.pub 6.使用命令复制ssh key到剪切板上 123456#windowsclip &lt; ~/.ssh/id_rsa.pub#Macpbcopy &lt; ~/.ssh/id_rsa.pub#Linuxxclip -sel clip &lt; ~/.ssh/id_rsa.pub 7.将ssh key粘到你的github账户上去 6.域名绑定？别忘了在你的source目录下添加一个CNAME文件（没有后缀），内容是你的域名，我的就是peacher.xyz ​]]></content>
