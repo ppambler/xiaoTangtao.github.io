@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[一些习惯]]></title>
+    <url>%2F2017%2F07%2F28%2F%E4%B8%80%E4%BA%9B%E4%B9%A0%E6%83%AF%2F</url>
+    <content type="text"><![CDATA[★一：小工具——Habit？①搜狗输入法： ID Shortcut Key Function 1 C+S+z 符号大全 2 C+S+b 颜文字 ②Markdown: 二级标题+三级标题【##+###】 无序列表+有序列表【-/* + 1. space key】 代码框【``】 表格 | Tables | Hello | World || —— | :—: | —-: || A | …… | …… || B | …… | …… || C | …… | …… | ​ 123456&gt; | Tables | Hello | World |&gt; | ------------- |:--------------:| -----:|&gt; | A | …… | …… |&gt; | B | …… | …… |&gt; | C | …… | …… |&gt; 引用【&gt;】 分割线【*】 链接【[]()】【[]==&gt;链接文本、()==&gt;链接文本对应的链接地址】 Baidu [Baidu](http://baidu.com) 图片【![]()】【[]==&gt;alt属性值、()==&gt;图片地址】]]></content>
+      <categories>
+        <category>Habit</category>
+      </categories>
+      <tags>
+        <tag>Habitual</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[浏览器关闭后，Session会话结束了么？]]></title>
+    <url>%2F2017%2F07%2F28%2F%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%B3%E9%97%AD%E5%90%8E%EF%BC%8CSession%E4%BC%9A%E8%AF%9D%E7%BB%93%E6%9D%9F%E4%BA%86%E4%B9%88%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[今天想和大家分享一个关于Session的话题: 当浏览器关闭时，Session就被销毁了？ 【原文出处(〃’▽’〃)】：http://blog.csdn.net/stanxl/article/details/47105051 ★这种说法你是否有过？我们知道Session是JSP的九大内置对象（也叫隐含对象）中的一个，它的作用是可以保 存当前用户的状态信息，初学它的时候，认为Session的生命周期是从打开一个浏览器窗 口发送请求到关闭浏览器窗口，但其实这种说法是不正确的！ ★解释这种说法（Session的运行机制）？▲下面就具体的去解释：当用户第一次访问Web应用中支持Session的某个网页时，就会开始一个新的Session， 那么接下来当用户浏览这个Web应用的不同网页时，始终处于一个Session中 再详细些： 当一个Session开始时，Servlet容器会创建一个HttpSession对象，那么在HttpSession对象中，可以存放用户状态的信息 Servlet容器为HttpSession对象分配一个唯一标识符即Sessionid，Servlet容器把Sessionid作为一种Cookie保存在客户端的 *浏览器* 中 用户每次发出Http请求时，Servlet容器会从HttpServletRequest对象中取出Sessionid,然后根据这个Sessionid找到相应的HttpSession对象，从而获取用户的状态信息 以上就是Session的运行机制，但是还没有提到Session的生命周期，再往下了解！ ★Session的生命周期？▲其实让Session结束生命周期，有以下两种办法： 一个是Session.invalidate()方法，不过这个方法在实际的开发中，并不推荐，可能在强制注销用户的时候会使用； 一个是当前用户和服务器的交互时间超过默认时间后，Session会失效 我们知道Session是存在于服务器端的，当把浏览器关闭时，浏览器并没有向服务器发送 任何请求来关闭Session，自然Session也不会被销毁，但是可以做一点努力，在所有的 客户端页面里使用js的window.onclose来监视浏览器的关闭动作，然后向服务器发送一 个请求来关闭Session，但是这种做法在实际的开发中也是不推荐使用的，最正常的办法 就是不去管它，让它等到默认的时间后，自动销毁 ★浏览器关闭后，你之前的JSESSIONID值还在吗？这可是你的身份证哦！那么为什么当我们关闭浏览器后，就再也访问不到之前的session了呢？ 其实之前的Session一直都在服务器端，而当我们关闭浏览器时，此时的Cookie是存在 于浏览器的进程中的，当浏览器关闭时，Cookie也就不存在了。【除非你在请求的时候带上你原先的JSESSIONID值，其实我知道，记住这个值实在是没有意义】 ★Cookie，对，有两种口味的饼干（session cookie&amp;persistent cookies）？▲其实Cookie有两种: 一种是存在于浏览器的进程中; 一种是存在于硬盘上 而session的Cookie是存在于浏览器的进程中，那么这种Cookie我们称为会话Cookie， 当我们重新打开浏览器窗口时，之前的Cookie中存放的Sessionid已经不存在了，此时 服务器从HttpServletRequest对象中没有检查到sessionid，服务器会再发送一个新的存 有Sessionid的Cookie到客户端的浏览器中，此时对应的是一个新的会话，而服务器上 原先的session等到它的默认时间到之后，便会自动销毁。 ★ps:得出观点？当在同一个浏览器中同时打开多个标签，发送同一个请求或不同的请求，仍是同一个session; 当不在同一个窗口中打开相同的浏览器时，发送请求，仍是同一个session; 当使用不同的浏览器时，发送请求，即使发送相同的请求，是不同的session; 当把当前某个浏览器的窗口全关闭，再打开，发起相同的请求时【将浏览器给关了】，就是本文所阐述的，是不同的session,但是它和session的生命周期是没有关系的.]]></content>
+      <categories>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>Session</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Session＆Scope]]></title>
+    <url>%2F2017%2F07%2F28%2FSession%EF%BC%86Scope%2F</url>
+    <content type="text"><![CDATA[几乎所有的Web开发语言都支持Session功能，Servlet也不例外。 Servlet/JSP中的Session功能是通过作用域(scope)这个概念来实现的。(这句话俺是排斥的——Servlet也是语言吗？) 【原文出处(〃’▽’〃)】：http://charlee.li/session-and-scope.html ★作用域分为四种，分别为： page 在当前页面有效(仅用于JSP中) request 在当前请求中有效 session 在当前会话中有效 application 在所有应用程序中有效 是不是看不太明白？page因为仅用于JSP中，这里只讲述其他三种作用域。 首先要声明的一点，所谓“作用域”就是“信息共享的范围”， 也就是说一个信息能够在多大的范围内有效。 话说武松一日来到景阳岗，见一旗帜迎风飘扬，旗子上书五个大字“三碗不过岗”。 武松叫道：“店家，拿三碗酒来，再切两斤熟牛肉！”店小二应声道：“三碗好酒， 二斤熟牛肉啰～～”里面厨师赶忙当当当当切好牛肉，店小二倒上三碗酒，店小二端上前来。 武松咕咚咕咚连干三碗，叫一声“好酒！店家，再来三碗！”小二忙又倒上三碗好酒， 武松一饮而尽。就这样前前后后武松一共喝了十八大腕。付了帐刚要走，店小二道： “客官，这前面山上有大虫，客官刚刚喝完十八碗酒恐怕过不得岗，不如在小店暂住一夜， 待明天和猎户一同过岗岂不是好？” 之后武松说什么就留待各位看官自己去回忆啦。在这段武松打虎中， 大家有没有看到些熟悉的东西？ 武松: 浏览器。 酒馆: 服务器。 店小二、厨师: Servlet或者JSP。 来三碗好酒！: 浏览器向服务器发出HTTP请求。 店小二上酒: 服务器的响应。 武松从进店到离开: 一个HTTP对话。 我们可以看到，Web交互的最基本单位为HTTP请求(‘武松点菜’)。 每个用户从进入网站到离开网站这段过程称为一个HTTP会话 (‘武松进店到出店’)，一个服务器的运行过程中会有多个用户访问， 就是多个HTTP会话(‘酒馆当然不可能只接待武松一个客人’)。 那么作用域就可以理解为： request HTTP请求开始到结束这段时间 session HTTP会话开始到结束这段时间 application 服务器启动到停止这段时间 ★request一个HTTP请求的处理可能需要多个Servlet合作(‘武松点菜时店小二就要吩咐厨房做菜’)， 几个Servlet之间可以通过某种方式传递信息(‘店小二就用吆喝的方式通知厨房’)， 但这个信息在请求结束后就无效了(‘厨房在做完菜之后就不用再管这道菜的事儿了’)。 Servlet之间的信息共享是通过HttpServletRequest接口的两个方法来实现的： void setAttribute(String name, Object value)将对象 value 以 name 为名称保存到request作用域中。 Object getAttribute(String name)从request作用域中取得指定名字的信息。 doGet()、doPost()函数的第一个参数就是 HttpServletRequest 对象， 使用这个对象的 setAttribute 即可传递信息。 那么设置好信息之后，如何将信息传给其他Servlet？ 这就要用到 RequestDispatcher 接口的 forward 方法，将请求转发给其他Servlet。 RequestDispatcher ServletContext.getRequestDispatcher(String path)取得Dispatcher以便转发。path为转发的目的Servlet。 void RequestDispatcher.forward(ServletRequest request, ServletResponse response)将request和response转发。 因此，只要在当前Servlet中先 setAttribute，然后forward，最后在forward到的Servlet中 getAttribute即可实现信息传递。 PHP的程序员可能不太好理解这一段，因为PHP中没有转发的概念， 一个请求只能由一个PHP文件来处理，所以PHP中根本没有request作用域的概念。 而Servlet则不同，请求可以在应用程序中任意转发，所以用request作用域在不同Servlet之间传递信息。 需要注意两点： 转发不是重定向，转发是在Web应用内部进行的。PHP支持重定向但没有转发。 转发对浏览器是透明的，也就是说，无论在服务器上如何转发，浏览器地址栏中显示的仍然是最初那个Servlet的地址。 ★sessionsession作用域比较容易理解，同一浏览器访问多次，在这多次访问之间传递信息，就是session作用域。 (武松每次点菜帐房先生都要记一笔账，等武松走之前结帐用。 这笔帐在武松吃饭过程中始终有效，即位于session作用域中) session是通过HttpSession接口实现的。 Object HttpSession.getAttribute(String name)从session中获取信息 void HttpSession.setAttribute(String name, Object value)向session中保存信息 而通过HttpServletRequest.getSession()方法可以获得HttpSession对象。 HttpSession HttpServletRequest.getSession()获取当前请求所在的session的对象。 session的开始容易判断(浏览器发出第一个HTTP请求即可认为会话开始)， 但结束就不好判断了(因为浏览器关闭时不会通知服务器“我关了，会话可以结束了”)， 所以只能通过这种方法判断：如果一定的时间内客户端没有反应，则认为会话结束。 Tomcat的默认值为120分钟，但这个值也可以通过 HttpSession 的 setMaxInactiveInterval 方法来设置。 void setMaxInactiveInterval(int interval)设置会话的超时值。 如果想主动让会话结束，如用户单击“注销”的时候，可以使用 HttpSession 的 invalidate 方法： void invalidate()强制结束当前session。 ★总结可以看到，每个作用域除了实现接口不同、意义不同之外，它们的使用方法和作用都是相同的， 都是通过 getAttribute 和 setAttribute 方法进行信息传递。 作用域 意义 实现接口 request HTTP请求内 HttpServletRequest session HTTP会话内 HttpSession application 服务器生命周期内 ServletContext ★示例程序这一节的示例程序是一个用户登录的模拟程序。文件较多。 login.html 登录表单 DoLogin.java 处理登录动作的Servlet LoginSuccess.java 用于显示登录成功信息的Servlet SessionTest.java 登录后的处理程序 DoLogout.java 注销的处理程序 为了演示 request、application、session 各个作用域的使用方法， Servlet之间进行了数据传递，数据传递方式如下： 数据产生 数据接受 数据内容 作用域 DoLogin LoginSuccess 登录时间 request DoLogin SessionTest 登录用户名 session DoLogin SessionTest 系统登录次数 application 访问 http://localhost:8080/LearnJSP/sessiontest， 登录时输入用户名 charlee 和密码 123456 即可。原文有个资源包的， 这里留个TODO【资源包（下载位置）】]]></content>
+      <categories>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>Jsp</tag>
+        <tag>Servlet</tag>
+        <tag>Session</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[重装chrome浏览器]]></title>
     <url>%2F2017%2F07%2F10%2F%E9%87%8D%E8%A3%85Google%2F</url>
     <content type="text"><![CDATA[因为要装最新版的，我卸了chrome浏览器(￣▽￣)／ ★卸载重装前注意： 最好注册个Google账户，这样你就可以将历史记录、书签和密码等内容保存并同步到您的 Google 帐号中。这样一来，只要您在 Chromebook 上或其他设备的 Google Chrome 中登录帐号，即可访问这些内容 于chrome://settings/ 下开启同步所有内容 若不想注册，那就将书签的内容导出为html文件，不过你所安装的插件就GG了 ★第一步：用360软件管家将chrome浏览器给卸了，因为用了有一段时间了，卸载大概要了15min，卸载后会告知还有点的东西没完全清除，然后你就直接再次清理一下即可 ★第二步：删除C:\Users\Administrator\AppData\Local\Google目录下的Chrome目录，整个都给它删了，听说还有删注册表什么的，我没有去删，接着我重启了一下电脑 ★第三步：360软件管家也有chrome浏览器，不过听说是阉割版的，因此我建议是去官网下载，然而需要梯子，于是我用了HERO加速器，注册免费赠送300M流量，速度很快 ★第四步：从官网上下载了一个ChromeSetup.exe，双击安装即可，前提是要有梯子，不然会有无法连接网络的错误，然后就一步步走下去即可，分分钟就安装好了，效果杠杠的]]></content>

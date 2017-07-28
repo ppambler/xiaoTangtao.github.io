@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Jsp,Servlet,Session," />
 
 
 
@@ -95,15 +95,17 @@
 
 
 
-<meta name="description" content="过去不逗留，学会唱歌(极简)">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ambler">
-<meta property="og:url" content="http://blog.peacher.xyz/categories/小软/index.html">
+<meta name="description" content="几乎所有的Web开发语言都支持Session功能，Servlet也不例外。 Servlet/JSP中的Session功能是通过作用域(scope)这个概念来实现的。(这句话俺是排斥的——Servlet也是语言吗？)  【原文出处(〃’▽’〃)】：http://charlee.li/session-and-scope.html">
+<meta name="keywords" content="Jsp,Servlet,Session">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Session＆Scope">
+<meta property="og:url" content="http://blog.peacher.xyz/2017/07/28/Session＆Scope/index.html">
 <meta property="og:site_name" content="Ambler">
-<meta property="og:description" content="过去不逗留，学会唱歌(极简)">
+<meta property="og:description" content="几乎所有的Web开发语言都支持Session功能，Servlet也不例外。 Servlet/JSP中的Session功能是通过作用域(scope)这个概念来实现的。(这句话俺是排斥的——Servlet也是语言吗？)  【原文出处(〃’▽’〃)】：http://charlee.li/session-and-scope.html">
+<meta property="og:updated_time" content="2017-07-28T15:10:13.680Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ambler">
-<meta name="twitter:description" content="过去不逗留，学会唱歌(极简)">
+<meta name="twitter:title" content="Session＆Scope">
+<meta name="twitter:description" content="几乎所有的Web开发语言都支持Session功能，Servlet也不例外。 Servlet/JSP中的Session功能是通过作用域(scope)这个概念来实现的。(这句话俺是排斥的——Servlet也是语言吗？)  【原文出处(〃’▽’〃)】：http://charlee.li/session-and-scope.html">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.peacher.xyz/categories/小软/"/>
+  <link rel="canonical" href="http://blog.peacher.xyz/2017/07/28/Session＆Scope/"/>
 
 
 
 
 
-  <title>分类: 小软 | Ambler</title>
+  <title>Session＆Scope | Ambler</title>
   
 
 
@@ -172,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-right  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,45 +322,344 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>小软<small>分类</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/10/重装Google/" itemprop="url">
-              
-                <span itemprop="name">重装chrome浏览器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-10T14:00:15+08:00"
-              content="2017-07-10" >
-          07-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.peacher.xyz/2017/07/28/Session＆Scope/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大桃哥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ambler">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Session＆Scope</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-28T18:52:51+08:00">
+                2017-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/28/Session＆Scope/" class="leancloud_visitors" data-flag-title="Session＆Scope">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>几乎所有的Web开发语言都支持Session功能，Servlet也不例外。 Servlet/JSP中的Session功能是通过<strong>作用域</strong>(<strong>scope</strong>)这个概念来实现的。(这句话俺是排斥的——Servlet也是语言吗？)</p>
+<blockquote>
+<p>【原文出处(〃’▽’〃)】：<a href="http://charlee.li/session-and-scope.html" target="_blank" rel="external">http://charlee.li/session-and-scope.html</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="★作用域分为四种，分别为："><a href="#★作用域分为四种，分别为：" class="headerlink" title="★作用域分为四种，分别为："></a>★作用域分为四种，分别为：</h2><table>
+<thead>
+<tr>
+<th>page</th>
+<th>在当前页面有效(仅用于JSP中)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>request</td>
+<td>在当前请求中有效</td>
+</tr>
+<tr>
+<td>session</td>
+<td>在当前会话中有效</td>
+</tr>
+<tr>
+<td>application</td>
+<td>在所有应用程序中有效</td>
+</tr>
+</tbody>
+</table>
+<p>是不是看不太明白？page因为仅用于JSP中，这里只讲述其他三种作用域。 首先要声明的一点，所谓“作用域”就是“<strong>信息共享的范围</strong>”， 也就是说一个信息能够在多大的范围内有效。</p>
+<p>话说武松一日来到景阳岗，见一旗帜迎风飘扬，旗子上书五个大字“三碗不过岗”。 武松叫道：“店家，拿三碗酒来，再切两斤熟牛肉！”店小二应声道：“三碗好酒， 二斤熟牛肉啰～～”里面厨师赶忙当当当当切好牛肉，店小二倒上三碗酒，店小二端上前来。</p>
+<p>武松咕咚咕咚连干三碗，叫一声“好酒！店家，再来三碗！”小二忙又倒上三碗好酒， 武松一饮而尽。就这样前前后后武松一共喝了十八大腕。付了帐刚要走，店小二道： “客官，这前面山上有大虫，客官刚刚喝完十八碗酒恐怕过不得岗，不如在小店暂住一夜， 待明天和猎户一同过岗岂不是好？”</p>
+<p>之后武松说什么就留待各位看官自己去回忆啦。在这段武松打虎中， 大家有没有看到些熟悉的东西？</p>
+<blockquote>
+<p><strong>武松</strong>: 浏览器。</p>
+<p><strong>酒馆</strong>: 服务器。</p>
+<p><strong>店小二、厨师</strong>: Servlet或者JSP。</p>
+<p><strong>来三碗好酒！</strong>: 浏览器向服务器发出HTTP请求。</p>
+<p><strong>店小二上酒</strong>: 服务器的响应。</p>
+<p><strong>武松从进店到离开</strong>: 一个HTTP对话。</p>
+</blockquote>
+<p>我们可以看到，Web交互的最基本单位为<strong>HTTP请求</strong>(<strong>‘武松点菜</strong>’)。 每个用户从进入网站到离开网站这段过程称为一个<strong>HTTP会话</strong> (<strong>‘武松进店到出店</strong>’)，一个服务器的运行过程中会有多个用户访问， 就是多个HTTP会话(<strong>‘酒馆当然不可能只接待武松一个客人</strong>’)。 那么作用域就可以理解为：</p>
+<table>
+<thead>
+<tr>
+<th>request</th>
+<th>HTTP请求开始到结束这段时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>session</td>
+<td>HTTP会话开始到结束这段时间</td>
+</tr>
+<tr>
+<td>application</td>
+<td>服务器启动到停止这段时间</td>
+</tr>
+</tbody>
+</table>
+<h2 id="★request"><a href="#★request" class="headerlink" title="★request"></a><strong>★request</strong></h2><p>一个HTTP请求的处理可能需要多个Servlet合作(<strong>‘武松点菜时店小二就要吩咐厨房做菜</strong>’)， 几个Servlet之间可以通过某种方式传递信息(<strong>‘店小二就用吆喝的方式通知厨房</strong>’)， 但这个信息在请求结束后就无效了(<strong>‘厨房在做完菜之后就不用再管这道菜的事儿了</strong>’)。</p>
+<p>Servlet之间的信息共享是通过HttpServletRequest接口的两个方法来实现的：</p>
+<p><code>void setAttribute(String name, Object value)</code><br>将对象 value 以 name 为名称保存到request作用域中。</p>
+<p><code>Object getAttribute(String name)</code><br>从request作用域中取得指定名字的信息。</p>
+<p><code>doGet()</code>、<code>doPost()</code>函数的第一个参数就是 <code>HttpServletRequest</code> 对象， 使用这个对象的 <code>setAttribute</code> 即可传递信息。</p>
+<p>那么设置好信息之后，如何将信息传给其他Servlet？ 这就要用到 <code>RequestDispatcher</code> 接口的 <code>forward</code> 方法，将请求转发给其他Servlet。</p>
+<p><code>RequestDispatcher ServletContext.getRequestDispatcher(String path)</code><br>取得Dispatcher以便转发。<code>path</code>为转发的目的Servlet。</p>
+<p><code>void RequestDispatcher.forward(ServletRequest request, ServletResponse response)</code><br>将<code>request</code>和<code>response</code>转发。</p>
+<p>因此，只要在当前Servlet中先 <code>setAttribute</code>，然后<code>forward</code>，最后在<code>forward</code>到的Servlet中 <code>getAttribute</code>即可实现信息传递。</p>
+<p>PHP的程序员可能不太好理解这一段，因为PHP中没有转发的概念， 一个请求只能由一个PHP文件来处理，所以PHP中根本没有request作用域的概念。 而Servlet则不同，请求可以在应用程序中任意转发，所以用request作用域在不同Servlet之间传递信息。 需要注意两点：</p>
+<ol>
+<li><strong>转发不是重定向</strong>，转发是在Web应用内部进行的。PHP支持重定向但没有转发。</li>
+<li><strong>转发对浏览器是透明的</strong>，也就是说，无论在服务器上如何转发，浏览器地址栏中显示的仍然是最初那个Servlet的地址。</li>
+</ol>
+<h2 id="★session"><a href="#★session" class="headerlink" title="★session"></a>★session</h2><p>session作用域比较容易理解，同一浏览器访问多次，在这多次访问之间传递信息，就是session作用域。 (武松每次点菜帐房先生都要记一笔账，等武松走之前结帐用。 这笔帐在武松吃饭过程中始终有效，即位于session作用域中)</p>
+<p>session是通过HttpSession接口实现的。</p>
+<p><code>Object HttpSession.getAttribute(String name)</code><br>从session中获取信息</p>
+<p><code>void HttpSession.setAttribute(String name, Object value)</code><br>向session中保存信息</p>
+<p>而通过<code>HttpServletRequest.getSession()</code>方法可以获得HttpSession对象。</p>
+<p><code>HttpSession HttpServletRequest.getSession()</code><br>获取当前请求所在的session的对象。</p>
+<p>session的开始容易判断(浏览器发出第一个HTTP请求即可认为会话开始)， 但结束就不好判断了(因为浏览器关闭时不会通知服务器“我关了，会话可以结束了”)， 所以只能通过这种方法判断：如果一定的时间内客户端没有反应，则认为会话结束。 Tomcat的默认值为120分钟，但这个值也可以通过 <code>HttpSession</code> 的 <code>setMaxInactiveInterval</code> 方法来设置。</p>
+<p><code>void setMaxInactiveInterval(int interval)</code><br>设置会话的超时值。</p>
+<p>如果想主动让会话结束，如用户单击“注销”的时候，可以使用 <code>HttpSession</code> 的 <code>invalidate</code> 方法：</p>
+<p><code>void invalidate()</code><br>强制结束当前session。</p>
+<h2 id="★总结"><a href="#★总结" class="headerlink" title="★总结"></a>★总结</h2><p>可以看到，每个作用域除了实现接口不同、意义不同之外，它们的使用方法和作用都是相同的， 都是通过 getAttribute 和 setAttribute 方法进行信息传递。</p>
+<table>
+<thead>
+<tr>
+<th>作用域</th>
+<th>意义</th>
+<th>实现接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>request</td>
+<td>HTTP请求内</td>
+<td>HttpServletRequest</td>
+</tr>
+<tr>
+<td>session</td>
+<td>HTTP会话内</td>
+<td>HttpSession</td>
+</tr>
+<tr>
+<td>application</td>
+<td>服务器生命周期内</td>
+<td>ServletContext</td>
+</tr>
+</tbody>
+</table>
+<h2 id="★示例程序"><a href="#★示例程序" class="headerlink" title="★示例程序"></a>★示例程序</h2><p>这一节的示例程序是一个用户登录的模拟程序。文件较多。</p>
+<ul>
+<li><strong>login.html</strong> 登录表单</li>
+<li><strong>DoLogin.java</strong> 处理登录动作的Servlet</li>
+<li><strong>LoginSuccess.java</strong> 用于显示登录成功信息的Servlet</li>
+<li><strong>SessionTest.java</strong> 登录后的处理程序</li>
+<li><strong>DoLogout.java</strong> 注销的处理程序</li>
+</ul>
+<p>为了演示 request、application、session 各个作用域的使用方法， Servlet之间进行了数据传递，数据传递方式如下：</p>
+<table>
+<thead>
+<tr>
+<th>数据产生</th>
+<th>数据接受</th>
+<th>数据内容</th>
+<th>作用域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DoLogin</td>
+<td>LoginSuccess</td>
+<td>登录时间</td>
+<td>request</td>
+</tr>
+<tr>
+<td>DoLogin</td>
+<td>SessionTest</td>
+<td>登录用户名</td>
+<td>session</td>
+</tr>
+<tr>
+<td>DoLogin</td>
+<td>SessionTest</td>
+<td>系统登录次数</td>
+<td>application</td>
+</tr>
+</tbody>
+</table>
+<p>访问 <a href="http://localhost:8080/LearnJSP/sessiontest，" target="_blank" rel="external">http://localhost:8080/LearnJSP/sessiontest，</a> 登录时输入用户名 charlee 和密码 123456 即可。原文有个资源包的，</p>
+<p><strong>这里留个TODO【资源包（下载位置）】</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Jsp/" rel="tag"># Jsp</a>
+          
+            <a href="/tags/Servlet/" rel="tag"># Servlet</a>
+          
+            <a href="/tags/Session/" rel="tag"># Session</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/10/重装Google/" rel="next" title="重装chrome浏览器">
+                <i class="fa fa-chevron-left"></i> 重装chrome浏览器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/28/浏览器关闭后，Session会话结束了么？/" rel="prev" title="浏览器关闭后，Session会话结束了么？">
+                浏览器关闭后，Session会话结束了么？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -366,6 +667,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTMyNS81ODkz"></div>
+    
+  </div>
+
 
         </div>
         
@@ -385,8 +692,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -448,6 +764,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#★作用域分为四种，分别为："><span class="nav-number">1.</span> <span class="nav-text">★作用域分为四种，分别为：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#★request"><span class="nav-number">2.</span> <span class="nav-text">★request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#★session"><span class="nav-number">3.</span> <span class="nav-text">★session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#★总结"><span class="nav-number">4.</span> <span class="nav-text">★总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#★示例程序"><span class="nav-number">5.</span> <span class="nav-text">★示例程序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -568,10 +900,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -606,6 +938,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
