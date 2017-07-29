@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[一些习惯]]></title>
     <url>%2F2017%2F07%2F28%2F%E4%B8%80%E4%BA%9B%E4%B9%A0%E6%83%AF%2F</url>
-    <content type="text"><![CDATA[我是真的记不住！！！(╥╯^╰╥) ★一：小工具——Habit？①搜狗输入法： ID Shortcut Key Function 1 C+S+z 符号大全 2 C+S+b 颜文字 ②Markdown: 二级标题+三级标题【##+###】 无序列表+有序列表【-/* + 1. space key】 代码框【``】 表格 | Tables | Hello | World || —— | :—: | —-: || A | …… | …… || B | …… | …… || C | …… | …… | ​ 123456&gt; | Tables | Hello | World |&gt; | ------------- |:--------------:| -----:|&gt; | A | …… | …… |&gt; | B | …… | …… |&gt; | C | …… | …… |&gt; 引用【&gt;】 分割线【*】 链接【[]()】【[]==&gt;链接文本、()==&gt;链接文本对应的链接地址】 Baidu [Baidu](http://baidu.com) 图片【![]()】【[]==&gt;alt属性值、()==&gt;图片地址】 ###③hexo命令： ####通用命令1.0： hexo s –debug –#debug模式开启服务器 hexo new “” –#新建文章 hexo clean –#清除缓存，强烈建议每次执行命令前先清理缓存，每次部署前先删除 .deploy 文件夹 hexo g –#生成网页，可以在 public 目录查看整个网站的文件 hexo d –#部署.deploy目录 12&gt; tags: [hexo,github] #文章标签，多于一项时用这种格式&gt;]]></content>
+    <content type="text"><![CDATA[我是真的记不住！！！(╥╯^╰╥) ★一：小工具——Habit？①搜狗输入法： ID Shortcut Key Function 1 C+S+z 符号大全 2 C+S+b 颜文字 ———未完待续 ②Markdown: 二级标题+三级标题【##+###】 无序列表+有序列表【-/* + 1. space key】 代码框【``】 表格: Tables Hello World A …… …… B …… …… C …… …… 12345| Tables | Hello | World || ------------- |:--------------:| -----:|| A | …… | …… || B | …… | …… || C | …… | …… | 引用【&gt;】 分割线【***】 链接【[]()】【[]==&gt;链接文本、()==&gt;链接文本对应的链接地址】 Baidu [Baidu](http://baidu.com) 图片【![]()】【[]==&gt;alt属性值、()==&gt;图片地址】 ​ ———未完待续 ③hexo命令：通用命令1.0： hexo s –debug –#debug模式开启服务器 hexo new “” –#新建文章 hexo clean –#清除缓存，强烈建议每次执行命令前先清理缓存，每次部署前先删除 .deploy 文件夹 hexo g –#生成网页，可以在 public 目录查看整个网站的文件 hexo d –#部署.deploy目录 12&gt; tags: [hexo,github] #文章标签，多于一项时用这种格式&gt; ———未完待续]]></content>
       <categories>
         <category>Habit</category>
       </categories>
