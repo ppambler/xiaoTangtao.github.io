@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java反射-是什么？]]></title>
+    <url>%2F2017%2F10%2F01%2FJava%E5%8F%8D%E5%B0%84-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[​ 反射是不是very important？绝对是，大白。愿你之后的日子里，能懂它，而不是只知道它的存在、用处……就像是没吃过猪肉，也见过猪跑 ★Class类？小白：大白，听说了你打算学习反射哦？我就知道，很多框架都用到了反射，具体是什么操作我就不清楚 大白：en，一入Java深似海，一坑还有一坑高，是时候装一波逼了，让我带你潇洒的起飞 小白：反射给我第一印象就是生物课本上的概念——有机体通过神经系统，对于刺激所产生的反应，像是望梅止渴这类的非条件反射，还有眨眼这类的条件反射 大白：确实是这么回事，其实我也不知道是不是类比的概念，于是我百科了一下： 反射是一种计算机处理方式。有程序可以访问、检测和修改它本身状态或行为的这种能力。能提供封装程序集、类型的对象。（程序集包含模块，而模块包含类型，类型又包含成员。） 看到这一段文本，脑海中顿时有一百头草泥马似在刁侃着啼叫，那声音给我的信息就是“你对力量一无所知”。言归正传，学习反射，我打算先了解给大概，然后随着时间长河，慢慢消磨它。 ①话说，你经常定义一个类，可你有了解过class吗？​ 我一直都有个疑问，interface到底是不是一个class，廖大说：“广义上来说是个class”，而且说到“Java除了基本类型外其它都是class(包括那100%抽象的interface)”。像是String、Object…… class的本质是数据类型，当我们new一个对象的时候，必须严格按照数据类型来赋值，而且无继承关系的数据类型无法赋值，如：(Student是Person的子类) Person p = new Person()是正确的，Person s = new Student()也是可以的，而String str = new Person()就不行了，这会编译报错，毕竟Java是强类型语言。 ②class/interface也有数据类型？​ 它们的数据类型就是Class，是不是很surprised！不是惊讶，而是懵逼了，class还有类型啊，就是这个跟我长得一模一样，就是头大了一点的Class，嗦嘎，class的本质是数据类型，像是String……你凭啥说String这是个类啊，就因为它public final class String这里有个class关键字？对头。 ③Class类是个幕后老大？123public final class Class &#123; private Class() &#123;&#125;&#125; Class的构造方法是private的，因此我们写的Java程序是无法创建Class实例的，而这个实例由JVM来创建，每加载一个class，就创建一个Class实例，并关联起来，过程如下： 12==&gt;加载String类：读取String.class文件==&gt;为Stirng类创建一个Class实例: Class cls = new Class(String); ④JVM持有的每个Class实例都指向一个数据类型（class或interface）?​ 这句话怎么理解？也就是： 12Class str = new Class(String);这个str指向的是String类Class ran = new Class(Random);这个ran指向的是Random类 ⑤一个Class实例包含了该class的完整信息？ Class实例 name “java.lang.String” package “java.lang” super java.lang.Object interface CharSequence,…… field value[],hash,…… method indexOf,valueOf…… ⑥小结？ JVM为每个加载的class创建对应的Class实例，并在该实例中保存该class的所有信息 如果获取了某个Class实例，则可以获取到该实例对应的class的所有信息 通过Class实例获取class信息的方法称为反射（Reflection）]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+      <tags>
+        <tag>Reflection</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[我想认识你-Eclipse（初遇篇）]]></title>
     <url>%2F2017%2F09%2F21%2F%E6%88%91%E6%83%B3%E8%AE%A4%E8%AF%86%E4%BD%A0-Eclipse%EF%BC%88%E5%88%9D%E9%81%87%E7%AF%87%EF%BC%89%2F</url>
     <content type="text"><![CDATA[我和你的初次相遇，即便之前的我们接触过，但依旧陌生 【原文出处(〃’▽’〃)】：http://zhoufoxcn.blog.51cto.com/792419/1422795 Eclipse的常用设置初次相遇，了解你的习惯 ①Window→Preferences下的设置？1.UTF-8的设定 General→Workspace ：勾选Other选择UTF-8 2.文件的默认encoding设置 General→Content Types：点中JSP，修改Default encoding为UTF-8【Java，xml文件的默认encoding设置成utf-8,就不需要改了】 3.设置新建xml/html/jsp文件的默认编码★注意这里的设置会影响到文件内容中的编码指定，比如对于html和jsp页面，html代码部分会有charset指定，这里的设置会影响到这个指定，而前面1和2步骤中是会影响到文件的保存编码。 Web→JSP Files: 往Encoding的下拉框中选择ISO 10646/Unicode(UTF-8) 4.设置行号和空白字符及控制字符显示 General→Editors→Text Editors: 勾选show line numbers+勾选show whitespace characters 5.设置Java代码编译时的兼容性★这样就可以在高版本的JDK下编译出可以运行在低版本JRE上运行的代码。 Java→Compiler: 选择目前最新版的JDK 6.查看Web项目的部署信息 在Java Web项目上鼠标右键然后选择“Properties”，然后点击“Deployment Assembly”查看。【TODO】 7.指定运行Java Web项目时所使用的浏览器★默认情况下在Eclipse中用系统默认浏览器打开指定的页面，可以设置外在Eclipse之外用非默认的浏览器打开。 General→Web Browser: 勾选使用外置浏览器，然后选择chrome，当然你也可以指定你想要的浏览器 8.设置代码输入时的智能提示触发器★默认情况下只有在输入”.”的时候才会触发，如果想达到输入任意小写英文字符就能弹出如上智能提示 Java→Editor→Content Assist: 看到那个”.”没有，看到了就添加a-z等26个小写字母，最后的样子是“.abcd……z” 9.JRE指定 Java→Installed JREs：选择已安转的jdk，如果没有就点击Add，我的路径==》E:\Program Files\Java\jdk1.8.0_121 10.设置Eclipse显示jsp和Java代码时的字体大小★一般字体样式无需改变，如果显示器分辨率较高的话，建议将字体大小设为12或14 General→Appearance→Colors and Fonts 11.用户自定义类库设置 Java→Build Path→User Libraries: 点击”New……”可新建Workspace级别的User Library ②小结：①完全是照搬那篇博文所写，似乎没有什么意义，可实际上还是有用的，表面上看是机械化的简单配置操作 ②学会了几个单词，还是挺有感觉的，当初看到Preference里全是英文的样子，有点心慌，如今消散了不少 ③所谓的设置，软件给予了你很大的权限，按己所需所更改，有时，我感到非常郁闷的是，配置的第一级就已经出现很多项了，就像是Eclipse那样，一眼望去有N个选择，当你还没清楚你的所需的关键字是什么的时候，就郁闷了，到底要更改哪一个才能达到我的目的，不了解设置的层次结构，分层逻辑，就如航行中没有方向，打算往东行驶，却往西边去了 ④要学会使用一个工具，必须明白这个软件的设计思想啊，当然最初使用的时候，只要能实现你的目的即可，其它的配置项的用意是几何？不需要去斟酌，慢慢来，走一步，探一步 ⑤一小撮代码，都有它的目的，一小点设置项的存在，都有它的存在，诚然，你需要明白的是这小点的上下文是啥子哦，不然的话，你会分不清的，如那一项下、这一项下都有一样的小点 ，(⊙o⊙)…，我刚刚配置了，怎么没效果，天杀的，是不是这软件有问题啊？也许你会想不管这软件存在了多久，还是会存在bug的，但你发现的概率还是蛮低的，所以别想着你是那万中无一，优先级必须是想排除你的人为失误，先回到起点，思考走下一步有几种可能性，当然你知道这一步是怎么走的就再好不过了 ⑥突然想到，配置即是更改样式，添加点胡椒粉、糖、醋，滤掉一些渣渣，味道不错 ​ ——————既然基础等于零，那就从零开始。]]></content>
@@ -52,9 +63,9 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
+        <tag>Session</tag>
         <tag>Jsp</tag>
         <tag>Servlet</tag>
-        <tag>Session</tag>
       </tags>
   </entry>
   <entry>
