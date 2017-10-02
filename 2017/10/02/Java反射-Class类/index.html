@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Reflection," />
 
 
 
@@ -95,15 +95,17 @@
 
 
 
-<meta name="description" content="过去不逗留，学会唱歌(极简)">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ambler">
-<meta property="og:url" content="http://blog.peacher.xyz/categories/JavaWeb/index.html">
+<meta name="description" content="接着上一篇Java反射-是什么？而来，其实都围绕Class类这个主题而来，这两篇基本完全照搬廖雪峰大神的Java教程而来。(￣▽￣)~*不能掌握一手资料，英语渣渣的我，愿有朝一日可阅读源码，可看懂英文的专业书籍，奈何时间不等人，还未了解为什么，就照搬接受——是什么就是什么，吸收多少未知，会用多少未知……">
+<meta name="keywords" content="Reflection">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java反射-Class类">
+<meta property="og:url" content="http://blog.peacher.xyz/2017/10/02/Java反射-Class类/index.html">
 <meta property="og:site_name" content="Ambler">
-<meta property="og:description" content="过去不逗留，学会唱歌(极简)">
+<meta property="og:description" content="接着上一篇Java反射-是什么？而来，其实都围绕Class类这个主题而来，这两篇基本完全照搬廖雪峰大神的Java教程而来。(￣▽￣)~*不能掌握一手资料，英语渣渣的我，愿有朝一日可阅读源码，可看懂英文的专业书籍，奈何时间不等人，还未了解为什么，就照搬接受——是什么就是什么，吸收多少未知，会用多少未知……">
+<meta property="og:updated_time" content="2017-10-02T08:16:41.445Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ambler">
-<meta name="twitter:description" content="过去不逗留，学会唱歌(极简)">
+<meta name="twitter:title" content="Java反射-Class类">
+<meta name="twitter:description" content="接着上一篇Java反射-是什么？而来，其实都围绕Class类这个主题而来，这两篇基本完全照搬廖雪峰大神的Java教程而来。(￣▽￣)~*不能掌握一手资料，英语渣渣的我，愿有朝一日可阅读源码，可看懂英文的专业书籍，奈何时间不等人，还未了解为什么，就照搬接受——是什么就是什么，吸收多少未知，会用多少未知……">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.peacher.xyz/categories/JavaWeb/"/>
+  <link rel="canonical" href="http://blog.peacher.xyz/2017/10/02/Java反射-Class类/"/>
 
 
 
 
 
-  <title>分类: JavaWeb | Ambler</title>
+  <title>Java反射-Class类 | Ambler</title>
   
 
 
@@ -172,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-right  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,73 +322,242 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>JavaWeb<small>分类</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/28/浏览器关闭后，Session会话结束了么？/" itemprop="url">
-              
-                <span itemprop="name">浏览器关闭后，Session会话结束了么？</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-28T20:51:36+08:00"
-              content="2017-07-28" >
-          07-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/28/Session＆Scope/" itemprop="url">
-              
-                <span itemprop="name">Session＆Scope</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-28T18:52:51+08:00"
-              content="2017-07-28" >
-          07-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.peacher.xyz/2017/10/02/Java反射-Class类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大桃哥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ambler">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java反射-Class类</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-02T15:55:31+08:00">
+                2017-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaSE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/02/Java反射-Class类/" class="leancloud_visitors" data-flag-title="Java反射-Class类">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>接着上一篇<a href="http://blog.peacher.xyz/2017/10/01/Java%E5%8F%8D%E5%B0%84-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/#more">Java反射-是什么？</a>而来，其实都围绕Class类这个主题而来，这两篇基本完全照搬廖雪峰大神的Java教程而来。(￣▽￣)~*不能掌握一手资料，英语渣渣的我，愿有朝一日可阅读源码，可看懂英文的专业书籍，奈何时间不等人，还未了解为什么，就照搬接受——是什么就是什么，吸收多少未知，会用多少未知……</p>
+<a id="more"></a>
+<h2 id="★Class类，我忍你很久了，你就不能换个样子？"><a href="#★Class类，我忍你很久了，你就不能换个样子？" class="headerlink" title="★Class类，我忍你很久了，你就不能换个样子？"></a>★Class类，我忍你很久了，你就不能换个样子？</h2><h3 id="①如何获取一个class的Class实例？"><a href="#①如何获取一个class的Class实例？" class="headerlink" title="①如何获取一个class的Class实例？"></a>①如何获取一个class的Class实例？</h3><p>有三种方式：</p>
+<ul>
+<li><p>Type.class</p>
+</li>
+<li><p>getClass()</p>
+</li>
+<li><p>Class.forName()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">==&gt;Class cls1 = String.class;</div><div class="line">==&gt;String s = &quot;Hello&quot;;</div><div class="line">   Class cls2 = s.getClass();</div><div class="line">==&gt;Class cls3 = Class.forName(&quot;java.lang.String&quot;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="②Class实例在JVM中是唯一的？"><a href="#②Class实例在JVM中是唯一的？" class="headerlink" title="②Class实例在JVM中是唯一的？"></a>②Class实例在JVM中是唯一的？</h3><ul>
+<li><p>可以用==比较两个Class实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">==&gt;boolean b1 = cls1 == cls2; // true</div><div class="line">==&gt;boolean b2 = cls2 == cls3; //true</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="③Class实例比较和instanceof的差别？"><a href="#③Class实例比较和instanceof的差别？" class="headerlink" title="③Class实例比较和instanceof的差别？"></a>③Class实例比较和instanceof的差别？</h3><p><code>instanceof</code> 不但匹配当前类型，而且匹配父类也是可以的。而<code>==</code>，能精确判断该类型，不能做子类的比较</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Integer n = new Integer(123);</div><div class="line">boolean b3 = n instanceof Integer; // true</div><div class="line">boolean b4 = n instanceof Number; // true</div><div class="line">boolean bl = n.getClass() == Integer.class; // true</div><div class="line">boolean b2 = n.getClass() == Number.class; // false</div></pre></td></tr></table></figure>
+<h3 id="④反射的目的？"><a href="#④反射的目的？" class="headerlink" title="④反射的目的？"></a>④反射的目的？</h3><p>反射的目的是当获得某个Object实例时，我们可以获取该Object的class信息，如调试当前某个实例变量时，eclipse能通过反射获取其具体的class信息，如其类型，当前的值……</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void printObjectlnfo(Object obj) &#123;</div><div class="line">	Class els = obj.getClass();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="⑤从Class实例获取class信息？"><a href="#⑤从Class实例获取class信息？" class="headerlink" title="⑤从Class实例获取class信息？"></a>⑤从Class实例获取class信息？</h3><ul>
+<li>getName()</li>
+<li>getSimpleName()</li>
+<li>getPackage()</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Class els = String.class;</div><div class="line">String fname = els.getName(); // &quot;java.lang.String&quot;;</div><div class="line">String sname = els.getSimpleName(); // &quot;String&quot;;</div><div class="line">String pkg = els.getPackage().getName(); // &quot;java.lang&quot;;</div></pre></td></tr></table></figure>
+<h3 id="⑥从Class实例判断class类型？"><a href="#⑥从Class实例判断class类型？" class="headerlink" title="⑥从Class实例判断class类型？"></a>⑥从Class实例判断class类型？</h3><ul>
+<li>isInterface()</li>
+<li>isEnum()</li>
+<li>isArray()</li>
+<li>isPrimitive()</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Runnable.class.islnterface(); // true</div><div class="line">java.time.Month.class.isEnum(); // true</div><div class="line">String[].class.isArray(); // true</div><div class="line">int.class.isPrimitive&#123;); // true</div></pre></td></tr></table></figure>
+<p>可见都是<code>Class实例.is……</code>。可是<code>int.class</code>是什么鬼？怎么基本类型也是class？逗比吧？虽然基本类型变量本身不是class，但是JVM的内部会创建<code>int.class</code>这种基本类型对应的Class实例。</p>
+<h3 id="⑦创建class实例？（注意是小头的class不是大头的Class"><a href="#⑦创建class实例？（注意是小头的class不是大头的Class" class="headerlink" title="⑦创建class实例？（注意是小头的class不是大头的Class)"></a>⑦创建class实例？（注意是小头的class不是大头的Class)</h3><ul>
+<li>newInstance()</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Class els = String.class;</div><div class="line">// new String():</div><div class="line">String s = (String) els.newlnstance()</div></pre></td></tr></table></figure>
+<p>可这样做有局限，只能调用String类无参数的默认构造方法，带参数的构造方法是没办法通过这个方法来调用的</p>
+<h3 id="⑧动态加载？"><a href="#⑧动态加载？" class="headerlink" title="⑧动态加载？"></a>⑧动态加载？</h3><p>利用JVM动态加载class的特性：</p>
+<ul>
+<li>可以在运行期根据条件不同加载不同的实现类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">boolean isClassPresent(String name) &#123;</div><div class="line">	try &#123;</div><div class="line">		Class.forName(name);</div><div class="line">		return true;</div><div class="line">	&#125; catch (Exception e) &#123;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>利用JVM动态加载class的特性，可以在运行期根据条件加载不同的实现</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// Commons Logging 优先使用 Log4j:</div><div class="line">LogFactory factory;</div><div class="line">if (isClassPresent(&quot;org.apache.logging.log4j.Logger&quot;)) &#123;</div><div class="line">	factory = createLog4j();</div><div class="line">&#125; else &#123;</div><div class="line">	factory = createJdkLog();</div><div class="line">&#125;</div><div class="line"></div><div class="line">boolean isClassPresent(String name) &#123;</div><div class="line">	try &#123;</div><div class="line">		Class.forName(name);</div><div class="line">		return true;</div><div class="line">	&#125; catch (Exception e) &#123;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里的关键在于<code>Class.forName()</code>能否找到这个类，只要将Log4j的jar包通过<code>ADD JARs…</code>放到<code>Referenced Libraries</code>下，接着将log4j的配置文件放到<code>classpath</code>（所谓的src）的根目录中就找的着，找不到就捕获这个异常。==》存在这个类吗，存在就使用你吧，不存在那就使用默认的好了</p>
+<h3 id="⑨总结？"><a href="#⑨总结？" class="headerlink" title="⑨总结？"></a>⑨总结？</h3><ul>
+<li>JVM为每个加载的class创建对应的Class实例来保存class 的所有信息</li>
+<li>获取一个class对应的Class实例后，就可以获取该 class 的所有信息</li>
+<li>通过Class实例获取class信息的方法称为反射(Reflection)</li>
+<li>JVM总是动态加载class ，可以在运行期根据条件控制加载 class</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Reflection/" rel="tag"># Reflection</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/01/Java反射-是什么？/" rel="next" title="Java反射-是什么？">
+                <i class="fa fa-chevron-left"></i> Java反射-是什么？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -394,6 +565,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTMyNS81ODkz"></div>
+    
+  </div>
+
 
         </div>
         
@@ -413,8 +590,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -476,6 +662,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#★Class类，我忍你很久了，你就不能换个样子？"><span class="nav-number">1.</span> <span class="nav-text">★Class类，我忍你很久了，你就不能换个样子？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#①如何获取一个class的Class实例？"><span class="nav-number">1.1.</span> <span class="nav-text">①如何获取一个class的Class实例？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#②Class实例在JVM中是唯一的？"><span class="nav-number">1.2.</span> <span class="nav-text">②Class实例在JVM中是唯一的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#③Class实例比较和instanceof的差别？"><span class="nav-number">1.3.</span> <span class="nav-text">③Class实例比较和instanceof的差别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#④反射的目的？"><span class="nav-number">1.4.</span> <span class="nav-text">④反射的目的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⑤从Class实例获取class信息？"><span class="nav-number">1.5.</span> <span class="nav-text">⑤从Class实例获取class信息？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⑥从Class实例判断class类型？"><span class="nav-number">1.6.</span> <span class="nav-text">⑥从Class实例判断class类型？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⑦创建class实例？（注意是小头的class不是大头的Class"><span class="nav-number">1.7.</span> <span class="nav-text">⑦创建class实例？（注意是小头的class不是大头的Class)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⑧动态加载？"><span class="nav-number">1.8.</span> <span class="nav-text">⑧动态加载？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⑨总结？"><span class="nav-number">1.9.</span> <span class="nav-text">⑨总结？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -601,10 +803,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -639,6 +841,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
