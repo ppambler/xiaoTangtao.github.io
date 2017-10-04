@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java反射-获取继承关系]]></title>
+    <url>%2F2017%2F10%2F04%2FJava%E5%8F%8D%E5%B0%84-%E8%8E%B7%E5%8F%96%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB%2F</url>
+    <content type="text"><![CDATA[儿子，说句实在的，你长得有点像隔壁老王。老婆你说是不是？(Ü)ＩLᵒᵛᵉᵧₒᵤ♥ 是不存在的，孩子他爸你为何这样认为？ 通过那面镜子反射获得的继承关系 …… ★获取继承关系①获取父类的Class? Class getSuperclass() Object的父类是null interface的父类是null 123Class sup = Integer.class.getSuperclass() // Number.classObject.class.getSuperclass() // nullRunnable.class.getSuperclass() // null Runnable是个接口啊，而Object是所有类的根类，interface是没有Superclass的 ②获取当前类直接实现的interface？ Class[] getInterfaces() 不包括间接实现的interface 没有interface的class返回空数组 interface返回继承的interface 12345Class[] ifs = Integer.class.getlnterfaces() // [Comparable.class]Class[] ifs = java.util.ArrayList.class.getlnterfaces()// [List.class , RandomAccess.class , Cloneable.class , Serializable.class]Class[] ifs = Math.class.getlnterfaces() ; // []Class[] ifs = java.util.List.class.getlnterfaces() ; // [Collection.class] ③判断一个向上转型是否成立? bool isAssignableFrom(Class) 1234567// Integer i =...// Number x = i ?Number . class .isAssignableFrom(Integer.class) ; // true/ / Number n =...// Integer i = n ?Integer.class.isAssignableFrom(Number.class) ; // false Integer类型的实例能否匹配Number类型的变量…… ④总结？ 通过Class对象可以获取继承关系： getSuperclass() getlnterfaces() 通过Class对象的isAssignableFrom()方法可以判断一个向上转型是否正确]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+      <tags>
+        <tag>Reflection</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java反射-调用构造方法]]></title>
+    <url>%2F2017%2F10%2F04%2FJava%E5%8F%8D%E5%B0%84-%E8%B0%83%E7%94%A8%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[如何通过反射调用构造方法？说句实在的，你有点叼哦!!!∑(ﾟДﾟノ)ノ ★调用构造方法①newInstance？ Class.newInstance()只能调用public无参数构造方法 12String s = (String) String.class.newlnstance();Integer n = (Integer) Integer.class.newlnstance();//==》这是错误的,毕竟需要参数 ②Constructor对象？ Constructor对象包含一个构造方法的所有信息，可以创建一个实例 123456789Class cls = Integer.class;// Integer(int)Constructor consl = cls.getConstructor(int.class);Integer nl = (Integer) consl.newlnstance(123);// Integer(String)Constructor cons2 = cls.getConstructor(String.class);Integer n2 = (Integer) cons2.newlnstance(&quot;123&quot;); 注意：参数是基本类型或包装类型的时候，Class实例是不同的，int.class和Integer.class代表不同的参数类型 ③通过Class实例获取Constructor信息？ getConstructor(Class… ）：获取某个 public 的 Constructor getDeclaredConstructor(Class…) ：获取某个 Constructor getConstructors() ：获取所有 public 的 Constructor getDeclaredConstructors() ：获取所有 Constructor 注意：和父类是没关系的，即不能获取父类的Constructor ④setAccessible ( true )可能会失败? 定 义 了 SecurityManager SecurityManager的规则阻止对该 Field 设置 accessible :例如，规则应用于所有 java 和 javax 开头的 package 的类 这里说白里就是不能访问Java核心类的private字段，通常情况下自己编写的类以及大部分第三方的类是没有这个限制的 ⑤总结？ Constructor对象封装了构造方法的所有信息 通过Class实例的方法可以获取Constructor实例：getConstructor / getConstructors/ getDeclaredConstructor/getDeclaredConstructors 通过Constructor 实例可以创建一个实例对象：newlnstance(Object… parameters) 通过设置setAccessible(true)来访问非public构造方法]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+      <tags>
+        <tag>Reflection</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java反射-调用方法]]></title>
+    <url>%2F2017%2F10%2F04%2FJava%E5%8F%8D%E5%B0%84-%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[再说一次重复的话——如何通过反射来调用方法？其实……其实有点无聊(/ω＼) ★刚刚才调用了字段，如今调用方法…… ①通过Class实例获取method信息？ getMethod(name,Class…): 获取某个public的method (包括父类) getDeclaredMethod(name,Class…): 获取当前类的某个method (不包括父类） getMethods(): 获取所有public的method (包括父类） getDeclaredMethods(): 获取当前类的所有method (不包括父类) Class…这是个可变参数 ，在Java的方法定义中，可变参数就是个数组参数，调用的时候不用写成数组的形式，因此调用起来更简单 ②Method对象包含一个method的所有信息？ getName() getReturnType() getParameterTypes() getModifiers() 1234567891011Integer n = new Integer(123);Class els = n.getClass();Method[] ms = els.getMethods();for (Method m : ms) &#123; m.getName(); // method name //return type: Class ret = m.getReturnType(); // parameter types: Class[] params = m.getParameterTypes(); m.getModifiers(); // modifiers&#125; ③调用无参数的Method? Object invoke(Object obj) 12345Integer n = new Integer(123);Class els = n.getClass();Method m = els.getMethod(&quot;toString&quot;);String s = (String) m.invoke(n);// &quot;123 &quot; , 相 当 于 String s = n.toString(); ④调用带参数的Method? Object invoke(Object obj, Object…args) 12345Integer n = new Integer(123);Class els = n.getClass();Method m = els.getMethod(&quot;compareTo&quot;, Integer.class);int r = (Integer) m.invoke(n, 456);// -1 , 相 当 于 int r = n.compareTo(456); ⑤setAccessible ( true )可能会失败?（同访问字段） 定 义 了 SecurityManager SecurityManager的规则阻止对该 Field 设置 accessible :例如，规则应用于所有 java 和 javax 开头的 package 的类 这里说白里就是不能访问Java核心类的private字段，通常情况下自己编写的类以及大部分第三方的类是没有这个限制的 ⑥多态？从Person.class获取的Method，作用与Student实例时： 实际调用方法是Student覆写的方法 保证了多态的正确性 1234567891011121314class Person &#123; public void hello() &#123; System.out.println(&quot;Person:hello&quot;); &#125;&#125;class Student extends Person &#123; public void hello() &#123; System.out.println(&quot;Student:hello&quot;); &#125;&#125; Method m = Person.class.getMethod(&quot;hello&quot;);m.invoke(new Student());//==&gt;Person p = new Student();//==&gt;p.hello(); ⑦总结？ Method对象封装了方法的所有信息 通过Class实例的方法可以获取Method实例：getMethod / getMethods / getDeclaredMethod / getDeclaredMethods 通过Method实例可以获取方法信息：getName / getReturnType / getParameterTypes / getModifiers 通过Method实例可以调用某个对象的方法：Object invoke(Object instance, Object… parameters) 通过设置setAccessible(true)来访问非public方法]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+      <tags>
+        <tag>Reflection</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java反射-访问字段]]></title>
+    <url>%2F2017%2F10%2F04%2FJava%E5%8F%8D%E5%B0%84-%E8%AE%BF%E9%97%AE%E5%AD%97%E6%AE%B5%2F</url>
+    <content type="text"><![CDATA[如何通过反射访问字段？其实我想通过new一个实例来访问字段(￣▽￣)／ ★访问字段①如何通过Class实例获取field信息？ getField(name): 获取某个public的field (包括父类） getDeclaredField(name): 获取当前类的某个field (不包括父类) getFields():获取所有public的field (包括父类） getDedaredFields():获取当前类的所有field (不包括父类） ②Field对象包含一个field的所有信息？ getName() getType() getModifiers() 12345678Integer n = new Integer(123);Class els = n.getClass();Field[] fs = els.getFields();for (Field f fs) &#123; f.getName(); // field name f.getType(); // field type f.getModifiers(); // modifiers&#125; ③获取field的值？ get(Object)获取一个实例的该字段的值 1234Integer n = new Integer(123);Class els = n.getClass()/Field f = els.getDeclaredField(&quot;value&quot;);f.get(n); // 123, 相当于 n.value 这里是大概给你了解给意思用的，demo不正确的，只需了解到这是个读方法，能读取到某个对象的字段的值 ④设置field的值？ set(Object, Object)设置一个实例的该字段的值 1234Integer n = new Integer(123);Class els = n.getClass ();Field f = els.getDeclaredField(&quot;value&quot;);f.set (n, 456) ; / / 相当于 n.value = 456 这是个写方法，能为某个对象的字段写入你想要的的值 ⑤setAccessible ( true )可能会失败? 定 义 了 SecurityManager SecurityManager的规则阻止对该 Field 设置 accessible :例如，规则应用于所有 java 和 javax 开头的 package 的类 这里说白里就是不能访问Java核心类的private字段，通常情况下自己编写的类以及大部分第三方的类是没有这个限制的 ⑥总结？ Field对象封装了字段的所有信息 通过Class实例的方法可以获取Field实例：getField / getFields / getDeclaredField / getDeclaredFields 通过Field实例可以获取字段信息：getName / getType / getModifiers 通过Field实例可以读取或设置某个对象的字段：get(Object instance) / set(Object instance, Object fieldValue) 通 过 设 置 setAccessible(true)来访问非public字段]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+      <tags>
+        <tag>Reflection</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java反射-Class类]]></title>
     <url>%2F2017%2F10%2F02%2FJava%E5%8F%8D%E5%B0%84-Class%E7%B1%BB%2F</url>
     <content type="text"><![CDATA[接着上一篇Java反射-是什么？而来，其实都围绕Class类这个主题而来，这两篇基本完全照搬廖雪峰大神的Java教程而来。(￣▽￣)~*不能掌握一手资料，英语渣渣的我，愿有朝一日可阅读源码，可看懂英文的专业书籍，奈何时间不等人，还未了解为什么，就照搬接受——是什么就是什么，吸收多少未知，会用多少未知…… ★Class类，我忍你很久了，你就不能换个样子？①如何获取一个class的Class实例？有三种方式： Type.class getClass() Class.forName() 1234==&gt;Class cls1 = String.class;==&gt;String s = &quot;Hello&quot;; Class cls2 = s.getClass();==&gt;Class cls3 = Class.forName(&quot;java.lang.String&quot;) ②Class实例在JVM中是唯一的？ 可以用==比较两个Class实例 12==&gt;boolean b1 = cls1 == cls2; // true==&gt;boolean b2 = cls2 == cls3; //true ③Class实例比较和instanceof的差别？instanceof 不但匹配当前类型，而且匹配父类也是可以的。而==，能精确判断该类型，不能做子类的比较 12345Integer n = new Integer(123);boolean b3 = n instanceof Integer; // trueboolean b4 = n instanceof Number; // trueboolean bl = n.getClass() == Integer.class; // trueboolean b2 = n.getClass() == Number.class; // false ④反射的目的？反射的目的是当获得某个Object实例时，我们可以获取该Object的class信息，如调试当前某个实例变量时，eclipse能通过反射获取其具体的class信息，如其类型，当前的值…… 123void printObjectlnfo(Object obj) &#123; Class els = obj.getClass();&#125; ⑤从Class实例获取class信息？ getName() getSimpleName() getPackage() 1234Class els = String.class;String fname = els.getName(); // &quot;java.lang.String&quot;;String sname = els.getSimpleName(); // &quot;String&quot;;String pkg = els.getPackage().getName(); // &quot;java.lang&quot;; ⑥从Class实例判断class类型？ isInterface() isEnum() isArray() isPrimitive() 1234Runnable.class.islnterface(); // truejava.time.Month.class.isEnum(); // trueString[].class.isArray(); // trueint.class.isPrimitive&#123;); // true 可见都是Class实例.is……。可是int.class是什么鬼？怎么基本类型也是class？逗比吧？虽然基本类型变量本身不是class，但是JVM的内部会创建int.class这种基本类型对应的Class实例。 ⑦创建class实例？（注意是小头的class不是大头的Class) newInstance() 123Class els = String.class;// new String():String s = (String) els.newlnstance() 可这样做有局限，只能调用String类无参数的默认构造方法，带参数的构造方法是没办法通过这个方法来调用的 ⑧动态加载？利用JVM动态加载class的特性： 可以在运行期根据条件不同加载不同的实现类 12345678boolean isClassPresent(String name) &#123; try &#123; Class.forName(name); return true; &#125; catch (Exception e) &#123; return false; &#125;&#125; 利用JVM动态加载class的特性，可以在运行期根据条件加载不同的实现 12345678910111213141516// Commons Logging 优先使用 Log4j:LogFactory factory;if (isClassPresent(&quot;org.apache.logging.log4j.Logger&quot;)) &#123; factory = createLog4j();&#125; else &#123; factory = createJdkLog();&#125;boolean isClassPresent(String name) &#123; try &#123; Class.forName(name); return true; &#125; catch (Exception e) &#123; return false; &#125;&#125; 这里的关键在于Class.forName()能否找到这个类，只要将Log4j的jar包通过ADD JARs…放到Referenced Libraries下，接着将log4j的配置文件放到classpath（所谓的src）的根目录中就找的着，找不到就捕获这个异常。==》存在这个类吗，存在就使用你吧，不存在那就使用默认的好了 ⑨总结？ JVM为每个加载的class创建对应的Class实例来保存class 的所有信息 获取一个class对应的Class实例后，就可以获取该 class 的所有信息 通过Class实例获取class信息的方法称为反射(Reflection) JVM总是动态加载class ，可以在运行期根据条件控制加载 class]]></content>
@@ -74,9 +118,9 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
+        <tag>Session</tag>
         <tag>Jsp</tag>
         <tag>Servlet</tag>
-        <tag>Session</tag>
       </tags>
   </entry>
   <entry>

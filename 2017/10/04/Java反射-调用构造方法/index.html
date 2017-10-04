@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Reflection," />
 
 
 
@@ -95,15 +95,17 @@
 
 
 
-<meta name="description" content="过去不逗留，学会唱歌(极简)">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ambler">
-<meta property="og:url" content="http://blog.peacher.xyz/tags/Eclipse/index.html">
+<meta name="description" content="如何通过反射调用构造方法？说句实在的，你有点叼哦!!!∑(ﾟДﾟノ)ノ">
+<meta name="keywords" content="Reflection">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java反射-调用构造方法">
+<meta property="og:url" content="http://blog.peacher.xyz/2017/10/04/Java反射-调用构造方法/index.html">
 <meta property="og:site_name" content="Ambler">
-<meta property="og:description" content="过去不逗留，学会唱歌(极简)">
+<meta property="og:description" content="如何通过反射调用构造方法？说句实在的，你有点叼哦!!!∑(ﾟДﾟノ)ノ">
+<meta property="og:updated_time" content="2017-10-04T10:46:50.688Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ambler">
-<meta name="twitter:description" content="过去不逗留，学会唱歌(极简)">
+<meta name="twitter:title" content="Java反射-调用构造方法">
+<meta name="twitter:description" content="如何通过反射调用构造方法？说句实在的，你有点叼哦!!!∑(ﾟДﾟノ)ノ">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.peacher.xyz/tags/Eclipse/"/>
+  <link rel="canonical" href="http://blog.peacher.xyz/2017/10/04/Java反射-调用构造方法/"/>
 
 
 
 
 
-  <title>标签: Eclipse | Ambler</title>
+  <title>Java反射-调用构造方法 | Ambler</title>
   
 
 
@@ -172,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-right  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,44 +322,219 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>Eclipse<small>标签</small>
-      </h1>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.peacher.xyz/2017/10/04/Java反射-调用构造方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大桃哥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ambler">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java反射-调用构造方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-04T18:11:29+08:00">
+                2017-10-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaSE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/04/Java反射-调用构造方法/" class="leancloud_visitors" data-flag-title="Java反射-调用构造方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>如何通过反射调用构造方法？说句实在的，你有点叼哦!!!∑(ﾟДﾟノ)ノ</p>
+<a id="more"></a>
+<h2 id="★调用构造方法"><a href="#★调用构造方法" class="headerlink" title="★调用构造方法"></a>★调用构造方法</h2><h3 id="①newInstance？"><a href="#①newInstance？" class="headerlink" title="①newInstance？"></a>①newInstance？</h3><ul>
+<li>Class.newInstance()只能调用public无参数构造方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String s = (String) String.class.newlnstance();</div><div class="line">Integer n = (Integer) Integer.class.newlnstance();//==》这是错误的,毕竟需要参数</div></pre></td></tr></table></figure>
+<h3 id="②Constructor对象？"><a href="#②Constructor对象？" class="headerlink" title="②Constructor对象？"></a>②Constructor对象？</h3><ul>
+<li>Constructor对象包含一个构造方法的所有信息，可以创建一个实例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Class cls = Integer.class;</div><div class="line"></div><div class="line">// Integer(int)</div><div class="line">Constructor consl = cls.getConstructor(int.class);</div><div class="line">Integer nl = (Integer) consl.newlnstance(123);</div><div class="line"></div><div class="line">// Integer(String)</div><div class="line">Constructor cons2 = cls.getConstructor(String.class);</div><div class="line">Integer n2 = (Integer) cons2.newlnstance(&quot;123&quot;);</div></pre></td></tr></table></figure>
+<p>注意：参数是基本类型或包装类型的时候，Class实例是不同的，<code>int.class</code>和<code>Integer.class</code>代表不同的参数类型</p>
+<h3 id="③通过Class实例获取Constructor信息？"><a href="#③通过Class实例获取Constructor信息？" class="headerlink" title="③通过Class实例获取Constructor信息？"></a>③通过Class实例获取Constructor信息？</h3><ul>
+<li>getConstructor(Class… ）：获取某个 public 的 Constructor</li>
+<li>getDeclaredConstructor(Class…) ：获取某个 Constructor</li>
+<li>getConstructors() ：获取所有 public 的 Constructor</li>
+<li>getDeclaredConstructors() ：获取所有 Constructor</li>
+</ul>
+<p>注意：和父类是没关系的，即不能获取父类的Constructor</p>
+<h3 id="④setAccessible-true-可能会失败"><a href="#④setAccessible-true-可能会失败" class="headerlink" title="④setAccessible ( true )可能会失败?"></a>④setAccessible ( true )可能会失败?</h3><ul>
+<li>定 义 了  SecurityManager</li>
+<li>SecurityManager的规则阻止对该 Field 设置  accessible :<br>例如，规则应用于所有 java 和 javax 开头的 package 的类</li>
+</ul>
+<p>这里说白里就是不能访问Java核心类的private字段，通常情况下自己编写的类以及大部分第三方的类是没有这个限制的</p>
+<h3 id="⑤总结？"><a href="#⑤总结？" class="headerlink" title="⑤总结？"></a>⑤总结？</h3><ul>
+<li>Constructor对象封装了构造方法的所有信息</li>
+<li>通过Class实例的方法可以获取Constructor实例：<br>getConstructor / getConstructors/ getDeclaredConstructor/getDeclaredConstructors</li>
+<li>通过Constructor 实例可以创建一个实例对象：<br>newlnstance(Object… parameters)</li>
+<li>通过设置setAccessible(true)来访问非public构造方法</li>
+</ul>
 
-      <h2 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/09/21/我想认识你-Eclipse（初遇篇）/" itemprop="url">
-              
-                <span itemprop="name">我想认识你-Eclipse（初遇篇）</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-21T13:11:09+08:00"
-              content="2017-09-21" >
-          09-21
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Reflection/" rel="tag"># Reflection</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/04/Java反射-调用方法/" rel="next" title="Java反射-调用方法">
+                <i class="fa fa-chevron-left"></i> Java反射-调用方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/04/Java反射-获取继承关系/" rel="prev" title="Java反射-获取继承关系">
+                Java反射-获取继承关系 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -365,6 +542,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTMyNS81ODkz"></div>
+    
+  </div>
+
 
         </div>
         
@@ -384,8 +567,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -447,6 +639,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#★调用构造方法"><span class="nav-number">1.</span> <span class="nav-text">★调用构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#①newInstance？"><span class="nav-number">1.1.</span> <span class="nav-text">①newInstance？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#②Constructor对象？"><span class="nav-number">1.2.</span> <span class="nav-text">②Constructor对象？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#③通过Class实例获取Constructor信息？"><span class="nav-number">1.3.</span> <span class="nav-text">③通过Class实例获取Constructor信息？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#④setAccessible-true-可能会失败"><span class="nav-number">1.4.</span> <span class="nav-text">④setAccessible ( true )可能会失败?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⑤总结？"><span class="nav-number">1.5.</span> <span class="nav-text">⑤总结？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -572,10 +780,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -610,6 +818,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
